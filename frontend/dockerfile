@@ -1,0 +1,12 @@
+FROM ubuntu:latest
+WORKDIR /app
+RUN apt-get update
+RUN apt install -y nodejs
+RUN apt install -y npm
+RUN npm init -y
+RUN npm install express
+COPY app.js /app
+COPY index.html /app
+COPY server.js /app
+EXPOSE 5050
+CMD ["node","server.js"]

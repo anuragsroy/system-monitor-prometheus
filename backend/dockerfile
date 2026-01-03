@@ -1,0 +1,12 @@
+FROM ubuntu:latest
+WORKDIR /app
+RUN apt update
+RUN apt install -y python3
+RUN apt install -y python3-pip
+RUN apt install -y python3-flask
+RUN apt install -y python3-psutil
+RUN apt install -y python3-prometheus-client
+RUN apt install -y python3-flask-cors
+COPY . /app
+EXPOSE 5000
+CMD ["python3","app.py"]
